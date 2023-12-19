@@ -1,0 +1,21 @@
+.info {
+    position: relative;
+    z-index: 5;
+    min-height: 70px;
+}
+
+.left-column {
+    background-size: cover;
+    background-position: center;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+
+    .form-card {
+        box-shadow: 5px 5px 5px 5px rgb(225, 224, 224);
+    }
+}

@@ -1,0 +1,94 @@
+.availability-row {
+    overflow-x: auto; // Allows horizontal scrolling
+    width: auto; // Adjust this value to control space between cells
+
+    .availability-cell {
+
+        cursor: pointer;
+        background-color: #FFFFFF; // White
+        border: 2px solid #f11d09; // Light Grey Border
+        transition: background-color 0.3s ease;
+        border-radius: 5px; // Rounded corners
+        text-align: center;
+        min-width: 61px;
+        font-size: 0.85rem;
+
+        &:hover {
+            background-color: #1DA1F2; // Twitter Blue
+            color: white; // White Text on Hover
+        }
+    }
+}
+
+.date-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #14171A; // Almost Black
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    button {
+        background: none;
+        border: none;
+        color: #1DA1F2; // Twitter Blue
+        cursor: pointer;
+        font-size: 1.25rem;
+
+        &:disabled {
+            color: #E1E8ED; // Light Grey for Disabled Buttons
+        }
+    }
+}
+
+.modal-dialog {
+    max-width: 500px;
+}
+
+.modal-header {
+    background-color: #1DA1F2; // Twitter Blue
+    color: white;
+}
+
+.modal-body {
+    padding: 15px;
+    color: #14171A; // Almost Black
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: #1DA1F2; // Twitter Blue
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #1A91DA; // Darker Blue
+        }
+    }
+}
+
+.modal-footer {
+    justify-content: flex-end;
+}
+
+.button-disabled {
+    background-color: grey;
+    color: white;
+    border: 1px solid darkgrey;
+    cursor: not-allowed;
+}
+
+.modal-close-icon {
+    font-size: xx-large;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(200, 55, 55);
+    }
+}

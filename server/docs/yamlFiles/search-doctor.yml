@@ -1,0 +1,92 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Doctor Search API
+  description: API endpoint for searching doctors in the Healthcare Appointment System.
+
+host: '127.0.0.1:5500'
+basePath: '/v1'
+schemes:
+  - https
+
+paths:
+  /search-doctors:
+    get:
+      summary: Search for doctors
+      description: Allows users to search for doctors based on specialty, location, and insurance.
+      operationId: searchDoctors
+      produces:
+        - application/json
+      parameters:
+        - name: specialty
+          in: query
+          description: Specialty of the doctor
+          required: false
+          type: string
+        - name: location
+          in: query
+          description: Location or area of the doctor's practice
+          required: false
+          type: string
+        - name: insurance
+          in: query
+          description: Insurance provider accepted by the doctor
+          required: false
+          type: string
+      responses:
+        '200':
+          description: A list of doctors that match the search criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Doctor'
+        '400':
+          description: Bad request (invalid input, missing required parameters)
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+
+definitions:
+  Doctor:
+    type: object
+    properties:
+      doctorId:
+        type: string
+        example: "doc123"
+      name:
+        type: string
+        example: "Dr. Jane Doe"
+      specialty:
+        type: string
+        example: "Cardiology"
+      location:
+        type: string
+        example: "New York, NY"
+      insuranceProviders:
+        type: array
+        items:
+          type: string
+        example:
+          - "Insurance Provider A"
+          - "Insurance Provider B"
+      qualification:
+        type: string
+        example: "MBBS"
+      experiense:
+        type: string
+        example: "17"
+
+  ErrorResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        example: 400
+      message:
+        type: string
+        example: "Invalid input data"
+

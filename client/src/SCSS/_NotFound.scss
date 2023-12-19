@@ -1,0 +1,39 @@
+.Error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+
+    h1 {
+        margin: 0;
+        font-size: 7em;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 3em;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: #1a1a1a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #3eb72c;
+        }
+    }
+}

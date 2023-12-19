@@ -1,0 +1,18 @@
+body {
+    scroll-behavior: smooth;
+}
+
+.align {
+    padding: 40px;
+}
+
+.alignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marginSide {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}

@@ -1,0 +1,123 @@
+openapi: 3.0.0
+
+info:
+  title       : API for Patient Registration
+  description : REST APIs for DocBook Project
+  version     : 'v1.0'
+
+servers:
+  - url: http://localhost:5000
+  
+paths:
+  
+  /createpatient :
+    post :
+      operationId : create_patient
+      description : Creates a new patient
+      
+      requestBody :
+        required : true
+        content  :
+            application/json:
+              schema :
+                $ref : "#/components/schemas/createPatientRequest"
+      
+      responses :
+        "200" :
+          description : Successful Request
+          content     :
+            application/json:
+              schema :
+                $ref : "#/components/schemas/requestSuccess"   
+                
+        "400" :
+          description : Bad Request
+          content     :
+            application/json: 
+              schema :
+                $ref : "#/components/schemas/badRequest"
+        
+        "500" :
+          description : Internal Server Error
+          content     :
+            application/json:
+              schema :
+                $ref : "#/components/schemas/internalServerError"
+                
+      
+      
+
+
+components :
+  schemas :
+    
+    createPatientRequest :
+      type : object 
+      properties :
+        Name :
+          type    : string
+          example : "patient1"
+        Email :
+          type    : string
+          format  : email
+          example : "patient1@gmail.com"
+        Username :
+          type    : string
+          example : "testUser"
+        Password :
+          type    : string
+          example : "user123"
+        Gender :
+          type    : string
+          enum    : ["male","female","other"]
+          example : male
+        Address :
+          type    : string
+          example : "14 elder street"
+        Dob :
+          type    : string
+          format  : date
+          example : "03-10-1999"
+        Height :
+          type    : number 
+          example : 180
+        Weight :
+          type    : number
+          example : 75
+      
+      required :
+        - Name
+        - Email
+        - Dob
+    
+    requestSuccess :
+      type       : object
+      properties :
+        code :
+          type    : string
+          example : "200"
+        message :
+          type    : string
+          example : "Request Successfull"
+
+    badRequest :
+      type       : object
+      properties :
+        code :
+          type    : string
+          example : "400"
+        message :
+          type    : string
+          example : "Bad Request"
+    
+    internalServerError :
+      type       : object
+      properties :
+        code :
+          type    : string
+          example : "500"
+        message :
+          type    : string
+          example : "Internal Server Error"
+        
+  

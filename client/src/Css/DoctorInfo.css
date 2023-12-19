@@ -1,0 +1,110 @@
+#search-results,
+#map {
+    height: 100vh;
+}
+
+#map {
+    position: sticky;
+    top: 0;
+}
+
+#search-results {
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.customContainerFluid {
+    background-color: #f8fcfd;
+}
+
+.header-btn {
+    border: 0px;
+    color: black;
+}
+
+.header-btn :hover {
+    background-color: #cccccc74;
+}
+
+.doctor-card-search {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-card-search {
+    object-fit: cover;
+    width: 100%;
+    /* Full width of the column */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.doctor-image {
+    width: 9vw;
+
+    height: 9vw;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    object-position: center;
+    box-shadow: 2px 5px 5px 5px #6c757d3d;
+}
+
+
+
+.doctor-card-search .card-body {
+    padding: 20px;
+}
+
+.doctor-card-search .card-title {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.doctor-card-search .card-text {
+    margin-bottom: 10px;
+}
+
+.availability-heading {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.doctor-details {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.custom-grid-padding {
+    padding: 20px 20px 20px 0px !important;
+}
+
+.filled-star,
+.half-filled-star {
+    color: rgb(255, 217, 0);
+    /* Or any color you prefer for filled and half-filled stars */
+}
+
+.empty-star {
+    color: #ccc;
+    /* Light grey for empty stars */
+}
+
+.doctor-name:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .doctor-card-search .doctor-image {
+        max-height: 150px;
+    }
+}

@@ -1,0 +1,110 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Doctor Profile API
+  description: API endpoint for creating and updating doctor profiles, including their insurance network, in the Healthcare Appointment System.
+
+host: '127.0.0.1:5500'
+basePath: '/v1'
+schemes:
+  - https
+
+paths:
+  /create-doctor-profile:
+    post:
+      summary: Create Doctor Profile
+      description: Allows doctors to create their professional profile, including the list of accepted insurance providers.
+      operationId: createDoctorProfile
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: doctorProfile
+          description: The doctor profile data to create, including insurance providers
+          required: true
+          schema:
+            $ref: '#/definitions/NewDoctorProfile'
+      responses:
+        '201':
+          description: Doctor profile created successfully
+          schema:
+            $ref: '#/definitions/DoctorProfileResponse'
+        '400':
+          description: Bad request (invalid input, missing required fields)
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+
+definitions:
+  NewDoctorProfile:
+    type: object
+    required:
+      - doctorId
+      - name
+      - specialty
+      - insuranceProviders
+    properties:
+      doctorId:
+        type: string
+        example: "user123"
+      name:
+        type: string
+        example: "Dr. John Doe"
+      specialty:
+        type: string
+        example: "Pediatrics"
+      qualifications:
+        type: string
+        example: "MD, Pediatrics Residency"
+      experience:
+        type: string
+        example: "Dr. Doe has over 10 years of experience in pediatric care..."
+      insuranceProviders:
+        type: array
+        items:
+          type: string
+        example:
+          - "Insurance Provider A"
+          - "Insurance Provider B"
+
+  DoctorProfileResponse:
+    type: object
+    properties:
+      doctorId:
+        type: string
+        example: "doc456"
+      name:
+        type: string
+        example: "Dr. John Doe"
+      specialty:
+        type: string
+        example: "Pediatrics"
+      qualifications:
+        type: string
+        example: "MD, Pediatrics Residency"
+      experience:
+        type: string
+        example: "Dr. Doe has over 10 years of experience in pediatric care..."
+      insuranceProviders:
+        type: array
+        items:
+          type: string
+        example:
+          - "Insurance Provider A"
+          - "Insurance Provider B"
+
+  ErrorResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        example: 400
+      message:
+        type: string
+        example: "Invalid input data"

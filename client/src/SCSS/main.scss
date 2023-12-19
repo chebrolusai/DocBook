@@ -1,0 +1,29 @@
+@import './availabilityGrid.scss';
+@import './bookingPage';
+@import './card';
+@import './DoctorInfo';
+@import './doctorProfile';
+@import './Footer';
+@import './Homepage';
+@import './login';
+@import './NotFound';
+@import './SearchForm';
+
+body {
+    scroll-behavior: smooth;
+}
+
+.align {
+    padding: 40px;
+}
+
+.alignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marginSide {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}

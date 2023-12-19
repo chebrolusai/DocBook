@@ -1,0 +1,89 @@
+openapi: 3.0.0
+
+info:
+  title       : API for Logging in
+  description : REST APIs for DocBook Project
+  version     : 'v1.0'
+
+servers:
+  - url: http://localhost:5000
+  
+paths:
+  /login :
+    post :
+      operationId : authenticate_user_login
+      description : Authenticate a user with username and password
+      
+      requestBody :
+        required : true
+        content  :
+          application/json :
+            schema :
+              $ref : "#/components/schemas/loginRequest"
+      
+      responses : 
+        "200" :
+          description : Successful Login
+          content     :
+            application/json:
+              schema :
+                $ref : "#/components/schemas/successLogin"
+        
+        "401" :
+          description : Unauthorised Request
+          content     :
+            application/json:
+              schema :
+                $ref : "#/components/schemas/errorLogin"
+                
+        "500" :
+          description : Internal Server Error
+          content     :
+            application/json:
+              schema :
+                $ref : "#/components/schemas/internalServerError"
+              
+      
+
+
+components :
+  schemas :
+  
+    loginRequest :
+      type : object
+      properties :
+        Username :
+          type    : string
+          example : "testUser"
+        Password :
+          type    : string
+          example : "user123"
+    
+    successLogin :
+      type       : object
+      properties :
+        token :
+          type    : string
+          example : "someTokenString"
+    
+    errorLogin :
+      type       : object
+      properties :
+        code :
+          type    : string 
+          example : "401"
+        message :
+          type    : string
+          example : "Unauthorised Request"
+    
+    internalServerError :
+      type       : object
+      properties :
+        code :
+          type    : string
+          example : "500"
+        message :
+          type    : string
+          example : "Internal Server Error"
+        
+  
